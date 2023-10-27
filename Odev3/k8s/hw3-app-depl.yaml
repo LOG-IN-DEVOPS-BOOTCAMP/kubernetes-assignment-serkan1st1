@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw3-app-depl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hw3-app
+  template:
+    metadata:
+      labels:
+        app: hw3-app
+    spec:
+      containers:
+      - name: hw3-app
+        image: serkan1st/odev3:v1
+        ports:
+        - containerPort: 8080

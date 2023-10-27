@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app-v2-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-app
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: web-app
+        version: v2
+    spec:
+      containers:
+       - name: web-app
+         image: serkan1st/web-app:v2
+         ports:
+          - containerPort: 3000
